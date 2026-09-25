@@ -1,0 +1,12 @@
+services:
+  semrush-scraper:
+    build: .
+    restart: unless-stopped
+    shm_size: 800m
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      # Optional — only for more than a few keyword / backlink calls a day
+      # (Semrush caps those per IP). Use a rotating residential proxy.
+      # - SEMRUSH_PROXY=http://user:pass@host:port
